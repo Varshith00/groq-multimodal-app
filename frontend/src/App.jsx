@@ -8,7 +8,8 @@ function App() {
   const [answer, setAnswer] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
 
-  const BACKEND_URL = "https://hackathon-backend-production-124c.up.railway.app";
+  // Update the backend URL to your new deployed URL
+  const BACKEND_URL = "https://groq-backend-production.up.railway.app";  // <-- Changed URL here
 
   const handleGenerate = async () => {
     const formData = new FormData();
