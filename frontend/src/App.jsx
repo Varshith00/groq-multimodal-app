@@ -8,15 +8,20 @@ function App() {
   const [answer, setAnswer] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
 
+  const BACKEND_URL = "https://hackathon-backend-production-124c.up.railway.app";
+
   const handleGenerate = async () => {
     const formData = new FormData();
-    formData.append("prompt", prompt);
+    
     if (selectedFile) {
       formData.append("file", selectedFile);
+    } else {
+      formData.append("type", "text");
+      formData.append("text", prompt);
     }
 
     try {
-      const response = await fetch("http://localhost:8000/generate", {
+      const response = await fetch(`${BACKEND_URL}/generate`, {
         method: "POST",
         body: formData,
       });
@@ -50,7 +55,9 @@ function App() {
         <button className="historyButton" onClick={() => alert("History not implemented")}>
           History
         </button>
-        <button className="logoutButton" onClick={() => alert("Logout logic here")}>Logout</button>
+        <button className="logoutButton" onClick={() => alert("Logout logic here")}>
+          Logout
+        </button>
       </div>
 
       <div className="header">Hello</div>
