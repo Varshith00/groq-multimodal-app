@@ -17,9 +17,9 @@ function App() {
     if (selectedFile) {
       formData.append("file", selectedFile);
     } else {
-      formData.append("type", "text");
-      formData.append("text", prompt);
+      formData.append("prompt", prompt);
     }
+    
 
     try {
       const response = await fetch(`${BACKEND_URL}/generate`, {
